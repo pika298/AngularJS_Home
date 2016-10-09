@@ -10,4 +10,8 @@ angular
 			console.log(error);
 		}); 
 
+		$scope.sayHello = function() {
+			console.log("Hello!");
+		}
+
 	});

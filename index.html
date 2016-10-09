@@ -9,11 +9,28 @@
 
 	</head>
 	<body ng-app="AngularHome" ng-controller="AngularHomeController">
-		<div class="well" ng-repeat="home in homes">
-			<h3>{{ home.address }}</h3>
-			<p><strong>Type: </strong>{{ home.type }}</p>
-			<p><strong>Description: </strong>{{ home.description }}</p>
-			<p><strong>Price: </strong>{{ home.price | currency }}</p>
+
+		<!-- Nav Bar -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">AngularHome</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Real Estate Listings -->
+		<div class="container">
+			<div class="col-sm-4" ng-repeat="home in homes">
+				<div class="thumbnail">
+					<img ng-src="images/{{ home.image }}.jpeg" alt="">
+					<div class="caption">
+						<p><strong>Type: </strong>{{ home.type }}</p>
+						<p><strong>Description: </strong>{{ home.description }}</p>
+						<p><strong>Price: </strong>{{ home.price | currency }}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 
