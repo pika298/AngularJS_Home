@@ -6,6 +6,7 @@
 
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
 
 	</head>
 	<body ng-app="AngularHome" ng-controller="AngularHomeController">
@@ -19,9 +20,52 @@
 			</div>
 		</nav>
 
+		<div class="container">
+			<!-- Min and Max Price Selection -->
+			<div class="col-sm-12 price-form">
+
+				<div class="col-sm-6">
+					<div class="input-group">
+						<span class="input-group-addon">Min Price</span>
+						<select name="minPrice" id="minPrice" ng-model="priceInfo.min" class="form-control">
+							<option value="100000">$100,000</option>
+							<option value="200000">$200,000</option>
+							<option value="300000">$300,000</option>
+							<option value="400000">$400,000</option>
+							<option value="500000">$500,000</option>
+							<option value="600000">$600,000</option>
+							<option value="700000">$700,000</option>
+							<option value="800000">$800,000</option>
+							<option value="900000">$900,000</option>
+							<option value="1000000">$1,000,000</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="input-group">
+						<span class="input-group-addon">Max Price</span>
+						<select name="maxPrice" id="maxPrice" ng-model="priceInfo.max" class="form-control">
+							<option value="100000">$100,000</option>
+							<option value="200000">$200,000</option>
+							<option value="300000">$300,000</option>
+							<option value="400000">$400,000</option>
+							<option value="500000">$500,000</option>
+							<option value="600000">$600,000</option>
+							<option value="700000">$700,000</option>
+							<option value="800000">$800,000</option>
+							<option value="900000">$900,000</option>
+							<option value="1000000">$1,000,000</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Real Estate Listings -->
 		<div class="container">
-			<div class="col-sm-4" ng-repeat="home in homes">
+			<div class="col-sm-4" ng-repeat="home in homes | AngularHomeFilter:priceInfo ">
 				<div class="thumbnail">
 					<img ng-src="images/{{ home.image }}.jpeg" alt="">
 					<div class="caption">
@@ -66,5 +110,6 @@
 
 	<script src="scripts/AngularHomeController.js"></script>
 	<script src="scripts/AngularHomeFactory.js"></script>
+	<script src="scripts/AngularHomeFilter.js"></script>
 
 </html>
