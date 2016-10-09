@@ -1,1 +1,1 @@
-angular.module('tutorial_1', ['ui.bootstrap']);
+angular.module('AngularHome', ['ui.bootstrap']);
