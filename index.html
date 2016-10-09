@@ -25,10 +25,31 @@
 				<div class="thumbnail">
 					<img ng-src="images/{{ home.image }}.jpeg" alt="">
 					<div class="caption">
-						<p><strong>Type: </strong>{{ home.type }}</p>
-						<p><strong>Description: </strong>{{ home.description }}</p>
-						<p><strong>Price: </strong>{{ home.price | currency }}</p>
+						<div ng-hide="showDetails === true">
+							<h3><i class="glyphicon glyphicon-tag"></i>{{ home.price | currency }}</h3>
+							<h4><i class="glyphicon glyphicon-home"></i>{{ home.address }}
+								<span class="label label-primary label-sm">{{ home.type }}</span>
+							</h4>
+						</div>
 					</div>
+
+					<button class="btn btn-xs btn-success" ng-hide="showDetails === true" ng-click="showDetails = !showDetails">
+						Details
+					</button>
+
+					<button class="btn btn-xs btn-danger" ng-show="showDetails === true" ng-click="showDetails = !showDetails">
+						Close
+					</button>
+
+					<div class="details" ng-show="showDetails === true">
+						<h4>
+							<span class="label label-primary">Beds: {{ home.details.bedrooms }}</span>
+							<span class="label label-primary">Baths: {{ home.details.bathrooms }}</span>
+							<span class="label label-primary">SqFt: {{ home.details.area }}</span>
+						</h4>
+						<p>{{ home.description }}</p>
+					</div>
+
 				</div>
 			</div>
 		</div>
