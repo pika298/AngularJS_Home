@@ -27,6 +27,13 @@ angular
 			$scope.editListing = false;
 		}
 
+		$scope.deleteHome = function(listing) {
+			var index = $scope.homes.indexOf(listing);
+			$scope.homes.splice(index, 1);
+			$scope.existingListing = {};
+			$scope.editListing = false;
+		}
+
 		AngularHomeFactory.getAngularHome().success(function(data) {
 			$scope.homes = data;
 		}).error(function(error) {
